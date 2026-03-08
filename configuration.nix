@@ -90,6 +90,7 @@
     packages = with pkgs; [
       htop
       git
+      gh
       tmux
       vim
       bat
