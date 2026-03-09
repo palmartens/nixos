@@ -57,7 +57,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       gh
-      ghostty
       starship
       vscode
     ];
@@ -80,6 +79,7 @@
     fzf
     fd
     fastfetch
+    python3
   ];
 
   system.stateVersion = "25.11"; # Did you read the comment?
