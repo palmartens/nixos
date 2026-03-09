@@ -156,5 +156,8 @@
   };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # VMWare Guest tools (if running in vm) 
+  virtualisation.vmware.guest.enable = true;
+
   
 }
