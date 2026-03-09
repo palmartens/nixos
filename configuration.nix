@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -80,6 +80,7 @@
     fzf
     fd
     fastfetch
+    python3
   ];
 
   system.stateVersion = "25.11"; # Did you read the comment?
@@ -99,5 +100,30 @@
 
   # Disable firewall
   networking.firewall.enable = false;
+
+  # dconf settings
+  programs.dconf.profiles.user.databases = [
+    {
+      settings = {
+        "org/gnome/desktop/session" = {
+          idle-delay = lib.gvariant.mkUint32 0;
+        };
+
+        "org/gnome/desktop/screensaver" = {
+          lock-enabled = false;
+          lock-delay = lib.gvariant.mkUint32 0;
+        };
+
+        "org/gnome/settings-daemon/plugins/power" = {
+          sleep-inactive-ac-type = "nothing";
+          sleep-inactive-ac-timeout = lib.gvariant.mkUint32 0;
+
+          sleep-inactive-battery-type = "nothing";
+          sleep-inactive-battery-timeout = lib.gvariant.mkUint32 0;
+        };
+
+      };
+    }
+  ];
   
 }
