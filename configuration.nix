@@ -81,6 +81,7 @@
     fd
     fastfetch
     python3
+    colordiff
   ];
 
   system.stateVersion = "25.11"; # Did you read the comment?
